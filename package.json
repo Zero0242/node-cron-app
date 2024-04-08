@@ -1,7 +1,13 @@
 {
   "name": "node-cron-app",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "author": "Zero0242 <pedrocorream66@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.3"
+  }
 }
