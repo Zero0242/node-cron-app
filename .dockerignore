@@ -1,9 +1,10 @@
+# Directorios
 node_modules/
-
-.gitignore/
 .git/
 
+.gitignore
 
+# Archivos
 yarn.lock
 package-lock.json
 .DS_Store
