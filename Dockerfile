@@ -10,7 +10,10 @@ COPY package.json ./
 RUN npm install
 
 # Moviendo archivos al contenedor
-COPY app.js ./
+COPY . ./
+
+# Carpetas de pruebas
+RUN npm run test
 
 
 # Correr el contenedor

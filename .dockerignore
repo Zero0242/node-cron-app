@@ -1,0 +1,11 @@
+node_modules/
+
+.gitignore/
+.git/
+
+
+yarn.lock
+package-lock.json
+.DS_Store
+.dockerignore
+Dockerfile
