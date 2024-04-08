@@ -4,6 +4,6 @@ let times = 0
 
 cron.schedule('1-59/5 * * * * *', () => {
     times++
-    console.log('Tick cada 5 segundos',times);
+    console.log('Tick cada multiplo de 5, con conteo de...',times);
 });
 console.log('simple app ejecutado');
