@@ -15,6 +15,9 @@ COPY . ./
 # Carpetas de pruebas
 RUN npm run test
 
+# Eliminando dependencias no necesarias en PROD
+RUN rm -rf node_modules && rm -rf tests
+RUN npm install --prod
 
 # Correr el contenedor
 CMD [ "node","app" ]
