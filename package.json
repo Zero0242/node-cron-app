@@ -5,9 +5,13 @@
   "author": "Zero0242 <pedrocorream66@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "jest --verbose"
   },
   "dependencies": {
     "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
