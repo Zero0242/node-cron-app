@@ -1,0 +1,7 @@
+{
+  "name": "node-cron-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Zero0242 <pedrocorream66@gmail.com>",
+  "license": "MIT"
+}
