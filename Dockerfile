@@ -1,25 +1,29 @@
 # FROM --platform=linux/amd64 node:19.2-alpine3.16
-FROM --platform=$BUILDPLATFORM node:19.2-alpine3.16
-# FROM node:19.2-alpine3.16
-
-# Carpeta de trabajo
+# FROM --platform=$BUILDPLATFORM node:19.2-alpine3.16
+# Esta es la etapa donde construimos las dependencias
+FROM node:19.2-alpine3.16 as dependencies
 WORKDIR /app
-
-# Moviendo archivos al contenedor
 COPY package.json ./
-
-# Instalar las dependencias
 RUN npm install
 
-# Moviendo archivos al contenedor
+# Esta es la etapa de pruebas y builds
+FROM node:19.2-alpine3.16 as builder
+WORKDIR /app
+COPY --from=dependencies /app/node_modules ./node_modules
 COPY . ./
-
-# Carpetas de pruebas
 RUN npm run test
 
-# Eliminando dependencias no necesarias en PROD
-RUN rm -rf node_modules && rm -rf tests
+# Aca vamos a correr finalmente la aplicacion
+FROM node:19.2-alpine3.16 as prod-dependencies
+WORKDIR /app
+COPY package.json .
 RUN npm install --prod
 
-# Correr el contenedor
+# Aca vamos a correr finalmente la aplicacion
+FROM node:19.2-alpine3.16 as runner
+WORKDIR /app
+COPY --from=prod-dependencies /app/node_modules ./node_modules
+COPY app.js ./
+COPY tasks ./tasks
+
 CMD [ "node","app" ]
