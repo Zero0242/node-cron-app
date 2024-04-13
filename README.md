@@ -37,3 +37,10 @@ docker buildx build \
 --tag zero0242/node-cron:1.0.7 \
 --push .   
 ```
+
+
+Inspeccionar una imagen con buildx
+
+```bash
+docker buildx imagetools inspect <user>/<image:tag>
+```
