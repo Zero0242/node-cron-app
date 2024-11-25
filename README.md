@@ -36,7 +36,7 @@ git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 
 ## Scripts
 
-Algunos scripts que pueden ser utilizados
+Algunos scripts que pueden ser utilizados en modo desarrollo
 
 | Comando               | Descripcion              |
 | --------------------- | ------------------------ |
@@ -63,6 +63,8 @@ Ejemplos de cron jobs para diferentes intervalos de tiempo:
 <div style="height: 200px;"></div>
 
 # Docker
+
+> Solo si tiene docker instalado, proceso de despliegue
 
 Para construir la imagen
 

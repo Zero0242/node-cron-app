@@ -1,17 +1,19 @@
 {
-  "name": "node-cron-app",
-  "version": "1.0.0",
-  "main": "app.js",
-  "author": "Zero0242 <pedrocorream66@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "start": "node app.js",
-    "test": "jest --verbose"
-  },
-  "dependencies": {
-    "node-cron": "^3.0.3"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
-  }
+	"name": "node-cron-app",
+	"version": "1.0.0",
+	"main": "app.js",
+	"author": "Zero0242 <pedrocorream66@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"start": "node app.js",
+		"dev": "nodemon app.js",
+		"test": "jest --verbose --watch-all"
+	},
+	"dependencies": {
+		"node-cron": "^3.0.3"
+	},
+	"devDependencies": {
+		"jest": "^29.7.0",
+		"nodemon": "^3.1.7"
+	}
 }
