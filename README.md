@@ -5,7 +5,9 @@
 
 # Proyecto Cron
 
-Cron básico, creado durante el curso de [docker](https://www.udemy.com/share/107Ple3@bdv7jBU2dSlE6vZw8aLAd8Eq0N7Xt_pSOL83lFBOB34jOuRb_K8f1XJgFnBywx8J8g==/)
+Cron básico, creado durante el curso de [docker](https://www.udemy.com/share/107Ple3@bdv7jBU2dSlE6vZw8aLAd8Eq0N7Xt_pSOL83lFBOB34jOuRb_K8f1XJgFnBywx8J8g==/).
+
+Configurado con [babel](https://mugan86.medium.com/configurar-babel-en-nodejs-525fd101990b) para la sintaxis moderna de javascript
 
 > creado en node js
 

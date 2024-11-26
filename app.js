@@ -1,5 +1,5 @@
-const cron = require('node-cron');
-const { syncDB } = require('./tasks/sync-db')
+import cron from 'node-cron'
+import { syncDB } from './tasks'
 
 // Le pasamos directamente la funcion al argumento del cron
 cron.schedule('1-59/5 * * * * *', syncDB);
