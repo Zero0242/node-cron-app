@@ -1,4 +1,40 @@
-# Orden de inicio
+<p align="center">
+  <a href="https://nodejs.org/en/" target="blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" width="200" alt="App Logo" /></a>
+</p>
+
+# Instalacion de Nodejs
+
+#### A: con (ejecutable `.exe`)
+
+[Guia de instalacion](https://codigofacilito.com/articulos/instalar-nodejs-windows)
+
+- durante el proceso de instalación, estar atento a la opción `Add to Path` para dejar nodejs a nivel global en el PC
+- `cmd` o `powershell` debe de emitir alguna respuesta positiva al ejecutar el comando `node -v`
+
+#### B: con ( gestor de paquetes )
+
+Usando un gestor de [paquetes](https://scoop.sh/) para windows, instalacion mediante PowerShell
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+Una vez completada la instalación, el gestor de paquetes hace la instalacion y configuracion mediante terminal
+
+```powershell
+scoop install nodejs
+```
+
+<hr/>
+
+<p align="center">
+  <a href="https://github.com/Zero0242/node-cron-app" target="blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="200" alt="App Logo" /></a>
+</p>
+
+# Actividad
 
 Cualquiera de estos 2 ordenes de inicio puede servir
 
@@ -35,7 +71,7 @@ Cualquiera de estos 2 ordenes de inicio puede servir
 
 ## Testeos de Programa
 
-Pruebas de tareas con **JEST**
+Pruebas de tareas con **JEST** (opcional, pero es recomendado hacerlo)
 
 1. **Funcion** guardado de logs
 
@@ -61,3 +97,16 @@ Pruebas de tareas con **JEST**
    - verifica si existe un archivo en una direccion especifica
    - puede validar la hora actual con la hora de la imagen
    - puede comprobar si un resultado fue eliminado
+
+---
+
+# Despliegue del programa (Modo Produccion)
+
+> PM2 es una herramienta de monitoreo y control de procesos, principalmente de nodejs
+
+Para simular el despliegue del proceso instalar [`pm2`](https://pm2.keymetrics.io/) con el comando `npm install -g pm2`
+
+- Para iniciar el proceso en el fondo ejecutar `pm2 start app.js --name node-cron`
+- Para monitorear los logs `pm2 log node-cron`
+- Monitorear todo `pm2 monit`
+- Para borrar el proceso `pm2 delete node-cron`
