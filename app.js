@@ -1,12 +1,16 @@
 import cron from 'node-cron'
-import { escribirLog, syncDB } from './tasks'
+import { escribirLog, mineriaDatos, syncDB } from './tasks'
 
 // Le pasamos directamente la funcion al argumento del cron
 cron.schedule('1-59/5 * * * * *', syncDB);
 
 // Con la sintaxis de `flecha`
 cron.schedule('1-59/5 * * * * *', () => {
-    escribirLog()
+    escribirLog({
+        nombre: 'cron-logs.txt',
+        maximoLineas: 15,
+        payload: new Date().toISOString()
+    })
 });
 
 // Con la sintaxis de `function`
