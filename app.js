@@ -1,12 +1,12 @@
 import cron from 'node-cron'
-import { syncDB } from './tasks'
+import { escribirLog, syncDB } from './tasks'
 
 // Le pasamos directamente la funcion al argumento del cron
 cron.schedule('1-59/5 * * * * *', syncDB);
 
 // Con la sintaxis de `flecha`
 cron.schedule('1-59/5 * * * * *', () => {
-    console.log(`Proceso 2 ${new Date().toISOString()}`)
+    escribirLog()
 });
 
 // Con la sintaxis de `function`
