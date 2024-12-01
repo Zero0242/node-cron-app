@@ -1,5 +1,6 @@
 const fs = require('fs')
 const { PicsumActions } = require('../actions')
+const { prisma } = require('../db')
 
 // Retornamos la ubicación de la galería
 async function getGaleria() {
@@ -18,7 +19,18 @@ async function getGaleria() {
     return { imagePath }
 }
 
+async function getGaleriaDB() {
+    const galeria = await getGaleria()
+    const registro = await prisma.imagen.create({
+        data: {
+            path: galeria.imagePath
+        }
+    })
+
+    return { registro }
+}
+
 
 module.exports = {
-    getGaleria
+    getGaleriaDB
 }

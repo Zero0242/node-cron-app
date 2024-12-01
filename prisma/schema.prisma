@@ -16,3 +16,9 @@ model Pokemon {
   imagenUrl String
   peso      Decimal
 }
+
+model Imagen {
+  id        String   @id @default(uuid())
+  path      String
+  createdAt DateTime @default(now())
+}

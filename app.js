@@ -1,5 +1,5 @@
 import cron from 'node-cron'
-import { escribirLog, getGaleria, mineriaDatos, syncDB } from './tasks'
+import { escribirLog, getGaleriaDB, mantenimientoGaleria, mineriaDatos, syncDB } from './tasks'
 import { prisma } from './db';
 
 async function bootstrap() {
@@ -22,7 +22,12 @@ async function bootstrap() {
 
     // Proceso de imagenes
     cron.schedule('1-59/5 * * * * *', function () {
-        getGaleria()
+        getGaleriaDB()
+    });
+
+    // Proceso de mantenimiento imagenes
+    cron.schedule('1-59/5 * * * * *', function () {
+        mantenimientoGaleria()
     });
 
     console.log('Iniciando CRON TICKER MODO DEV');
