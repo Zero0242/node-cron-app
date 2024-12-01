@@ -15,7 +15,7 @@ cron.schedule('1-59/5 * * * * *', () => {
 
 // Con la sintaxis de `function`
 cron.schedule('1-59/5 * * * * *', function () {
-    console.log(`Proceso 3 ${new Date().toISOString()}`)
+    mineriaDatos()
 });
 
 console.log('Iniciando CRON TICKER MODO DEV');
