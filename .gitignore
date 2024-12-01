@@ -7,3 +7,7 @@ package-lock.json
 # Carpeta de archivos generados
 
 generated/
+.env
+# Evitar la subida a github
+*.db
+*-journal
