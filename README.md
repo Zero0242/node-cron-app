@@ -43,10 +43,14 @@ Algunos scripts que pueden ser utilizados en modo desarrollo
 | Comando                                         | Descripcion                             |
 | ----------------------------------------------- | --------------------------------------- |
 | `npm install`                                   | Instala las dependencias                |
-| `npm run jest`                                  | Ejecuta las pruebas                     |
 | `rm -rf node_modules`                           | Limpia las dependencias                 |
 | `npx prisma migrate dev --name migration_name ` | Ejecutar actualizacion de base de datos |
 | `npx prisma generate`                           | Actualizar cliente de prisma            |
+| `npm run jest`                                  | Ejecuta las pruebas                     |
+| `npm start`                                     | Iniciar app                             |
+| `npm run dev`                                   | Iniciar app en modo desarrollo          |
+| `npm run build`                                 | Compilar la app a nodejs                |
+| `npm run start:prod`                            | Iniciar la app compilada                |
 
 ## Cron Jobs
 

@@ -6,6 +6,7 @@ package-lock.json
 
 # Carpeta de archivos generados
 
+dist/
 generated/
 .env
 # Evitar la subida a github
