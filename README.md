@@ -40,11 +40,17 @@ git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 
 Algunos scripts que pueden ser utilizados en modo desarrollo
 
-| Comando               | Descripcion              |
-| --------------------- | ------------------------ |
-| `npm install`         | Instala las dependencias |
-| `npm run jest`        | Ejecuta las pruebas      |
-| `rm -rf node_modules` | Limpia las dependencias  |
+| Comando                                         | Descripcion                             |
+| ----------------------------------------------- | --------------------------------------- |
+| `npm install`                                   | Instala las dependencias                |
+| `rm -rf node_modules`                           | Limpia las dependencias                 |
+| `npx prisma migrate dev --name migration_name ` | Ejecutar actualizacion de base de datos |
+| `npx prisma generate`                           | Actualizar cliente de prisma            |
+| `npm run jest`                                  | Ejecuta las pruebas                     |
+| `npm start`                                     | Iniciar app                             |
+| `npm run dev`                                   | Iniciar app en modo desarrollo          |
+| `npm run build`                                 | Compilar la app a nodejs                |
+| `npm run start:prod`                            | Iniciar la app compilada                |
 
 ## Cron Jobs
 
@@ -59,46 +65,3 @@ Ejemplos de cron jobs para diferentes intervalos de tiempo:
 | Cada 3 minutos      | `*/3 * * * *`       |
 | Cada 5 minutos      | `*/5 * * * *`       |
 | Cada 10 minutos     | `*/10 * * * *`      |
-
----
-
-<div style="height: 200px;"></div>
-
-# Docker
-
-> Solo si tiene docker instalado, proceso de despliegue
-
-Para construir la imagen
-
-```bash
-docker build --tag imagen-super:1.0.0 .
-```
-
-Para renombrar la imagen
-
-```bash
-docker image tag <image-1> <image-2>
-```
-
-# BUILDX
-
-Para crear el buildx de docker
-
-```bash
-docker buildx create --name udemy-builder --driver docker-container --bootstrap
-```
-
-El comando del build para multiples arquitecturas
-
-```bash
-docker buildx build \
---platform linux/amd64,linux/arm64 \
---tag zero0242/node-cron:1.0.7 \
---push .
-```
-
-Inspeccionar una imagen con buildx
-
-```bash
-docker buildx imagetools inspect <user>/<image:tag>
-```
