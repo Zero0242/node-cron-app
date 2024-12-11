@@ -11,26 +11,23 @@ Configurado con [babel](https://mugan86.medium.com/configurar-babel-en-nodejs-52
 
 > creado en node js
 
-## Cómo hacer un Fork
-
-1. Ve a la página principal del repositorio en GitHub.
-2. Haz clic en el botón "Fork" en la esquina superior derecha de la página.
-3. Selecciona tu cuenta de GitHub como el destino del fork.
-4. GitHub creará una copia del repositorio en tu cuenta.
-
-Una vez que hayas hecho el fork, puedes clonar tu repositorio forked a tu máquina local y trabajar en él.
-
-```bash
-git clone https://github.com/tu-usuario/nombre-del-repositorio.git
-```
-
 ## DEV
 
 1. Clonar repositorio con `git clone`
 2. Instalar los paquetes de node js con `npm install`
-3. Crear un archivo `.env` basado en el `.env.example`
-4. Ejecutar el proyecto con `npm run start` o `npm run dev`
+3. Ejecutar el proyecto con `npm run start` o `npm run dev`
    - Opcional: ejecutar los comandos del `package.json` o usando `F5`
+
+## Producción
+
+1. Clonar repositorio con `git clone`
+2. Instalar los paquetes de node js con `npm install`
+   - APROX son +30mb de peso en paquetes
+3. Correr las pruebas con `npm run test`
+4. Generar build `npm run build`
+5. Instalar solo los paquetes de produccion con `npm install --prod`
+   - APROX menos de 1mb de peso en paquetes
+6. Ejecutar servidor con `npm run start:deploy`
 
 ## Requisitos
 
@@ -40,28 +37,35 @@ git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 
 Algunos scripts que pueden ser utilizados en modo desarrollo
 
-| Comando                                         | Descripcion                             |
-| ----------------------------------------------- | --------------------------------------- |
-| `npm install`                                   | Instala las dependencias                |
-| `rm -rf node_modules`                           | Limpia las dependencias                 |
-| `npx prisma migrate dev --name migration_name ` | Ejecutar actualizacion de base de datos |
-| `npx prisma generate`                           | Actualizar cliente de prisma            |
-| `npm run jest`                                  | Ejecuta las pruebas                     |
-| `npm start`                                     | Iniciar app                             |
-| `npm run dev`                                   | Iniciar app en modo desarrollo          |
-| `npm run build`                                 | Compilar la app a nodejs                |
-| `npm run start:prod`                            | Iniciar la app compilada                |
+| Comando                | Descripcion                                 |
+| ---------------------- | ------------------------------------------- |
+| `npm install`          | Instala todas las dependencias              |
+| `npm install --prod`   | Instala solo las dependencias de Producción |
+| `rm -rf node_modules`  | Limpia las dependencias                     |
+| `npm run test`         | Ejecuta las pruebas                         |
+| `npm start`            | Iniciar app                                 |
+| `npm run dev`          | Iniciar app en modo desarrollo              |
+| `npm run build`        | Compilar la app a nodejs                    |
+| `npm run start:deploy` | Iniciar la app compilada                    |
 
-## Cron Jobs
+# Docker
 
-Ejemplos de cron jobs para diferentes intervalos de tiempo:
+Solo añadir lo minimo para que el server funcione, posee su propio archivo `.dockerignore` que contiene los mismos elementos de `.gitignore` para evitar archivos no relevantes.
 
-| Intervalo de Tiempo | Cron Job Expression |
-| ------------------- | ------------------- |
-| Cada 10 segundos    | `*/10 * * * * *`    |
-| Cada 30 segundos    | `*/30 * * * * *`    |
-| Cada 50 segundos    | `*/50 * * * * *`    |
-| Cada 1 minuto       | `*/1 * * * *`       |
-| Cada 3 minutos      | `*/3 * * * *`       |
-| Cada 5 minutos      | `*/5 * * * *`       |
-| Cada 10 minutos     | `*/10 * * * *`      |
+- Construir
+
+```sh
+# Detectando el archivo `dockerfile` automaticamente
+docker build --tag imagen_custom:nombre_tag .
+# Lo mismo pero especificando el nombre del dockerfile
+docker build --tag imagen_custom:nombre_tag -f dockerfile.produccion .
+```
+
+- Eliminar cache de construccion
+
+```sh
+# primero elimina la imagen creada
+docker image rm imagen_custom:nombre_tag
+# elimina la data en caché
+docker buildx prune
+```
